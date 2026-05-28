@@ -63,10 +63,17 @@
   "screenshots": [
     {
       "src": "/icons/screenshot-mobile.png",
-      "sizes": "390x844",
+      "sizes": "1024x1024",
       "type": "image/png",
       "form_factor": "narrow",
-      "label": "NutriLens Dashboard"
+      "label": "NutriLens Mobile Dashboard"
+    },
+    {
+      "src": "/icons/screenshot-desktop.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "NutriLens Desktop Dashboard"
     }
   ],
   "prefer_related_applications": false,
