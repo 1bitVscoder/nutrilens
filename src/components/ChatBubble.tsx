@@ -1,0 +1,125 @@
+'use client';
+
+import React from 'react';
+import { motion } from 'motion/react';
+
+interface ChatBubbleProps {
+  message: {
+    role: 'user' | 'assistant';
+    content: string;
+    timestamp: string;
+  };
+  isStreaming?: boolean;
+}
+
+export default function ChatBubble({ message, isStreaming = false }: ChatBubbleProps) {
+  const isUser = message.role === 'user';
+  const time = new Date(message.timestamp).toLocaleTimeString('en-US', {
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true,
+  });
+
+  // Simple markdown-like formatting
+  const formatContent = (text: string) => {
+    return text.split('\n').map((line, i) => {
+      // Bold
+      let formatted = line.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      // Bullet points
+      if (formatted.startsWith('• ') || formatted.startsWith('- ')) {
+        formatted = `<span style="display:block;padding-left:12px">• ${formatted.slice(2)}</span>`;
+      }
+      return (
+        <span
+          key={i}
+          dangerouslySetInnerHTML={{ __html: formatted || '<br/>' }}
+          style={{ display: 'block' }}
+        />
+      );
+    });
+  };
+
+  return (
+    <motion.div
+      initial={{ scale: 0.7, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ duration: 0.18, ease: [0.2, 0, 0, 1] }}
+      style={{
+        display: 'flex',
+        justifyContent: isUser ? 'flex-end' : 'flex-start',
+        padding: '4px 0',
+        gap: '8px',
+        alignItems: 'flex-end',
+      }}
+    >
+      {/* AI Avatar */}
+      {!isUser && (
+        <div
+          style={{
+            width: '32px',
+            height: '32px',
+            borderRadius: '50%',
+            backgroundColor: 'var(--md-sys-color-primary-container)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '16px',
+            flexShrink: 0,
+          }}
+        >
+          🤖
+        </div>
+      )}
+
+      <div style={{ maxWidth: '80%' }}>
+        {/* Bubble */}
+        <div
+          className="body-medium"
+          style={{
+            backgroundColor: isUser
+              ? 'var(--md-sys-color-primary-container)'
+              : 'var(--md-sys-color-surface-container-high)',
+            color: isUser
+              ? 'var(--md-sys-color-on-primary-container)'
+              : 'var(--md-sys-color-on-surface)',
+            padding: '12px 16px',
+            borderRadius: isUser
+              ? '16px 16px 4px 16px'
+              : '4px 16px 16px 16px',
+            lineHeight: 1.5,
+          }}
+        >
+          {formatContent(message.content)}
+          {isStreaming && (
+            <motion.span
+              animate={{ opacity: [1, 0] }}
+              transition={{ duration: 0.6, repeat: Infinity }}
+              style={{
+                display: 'inline-block',
+                width: '2px',
+                height: '16px',
+                backgroundColor: 'currentColor',
+                marginLeft: '2px',
+                verticalAlign: 'text-bottom',
+              }}
+            />
+          )}
+        </div>
+
+        {/* Timestamp */}
+        <div
+          className="label-small"
+          style={{
+            color: 'var(--md-sys-color-on-surface-variant)',
+            marginTop: '4px',
+            textAlign: isUser ? 'right' : 'left',
+            paddingInline: '4px',
+            opacity: 0.7,
+          }}
+        >
+          {time}
+        </div>
+      </div>
+    </motion.div>
+  );
+}

@@ -1,0 +1,51 @@
+{
+  "packageId": "com.nutrilens.app",
+  "host": "nutrilens.vercel.app",
+  "name": "NutriLens",
+  "launcherName": "NutriLens",
+  "display": "standalone",
+  "themeColor": "#4CAF88",
+  "themeColorDark": "#101510",
+  "navigationColor": "#101510",
+  "navigationColorDark": "#101510",
+  "navigationDividerColor": "#1c211c",
+  "navigationDividerColorDark": "#1c211c",
+  "backgroundColor": "#f6fbf4",
+  "enableNotifications": true,
+  "startUrl": "/",
+  "iconUrl": "/icons/icon-512x512.png",
+  "maskableIconUrl": "/icons/maskable-icon-512x512.png",
+  "splashScreenFadeOutDuration": 300,
+  "isChromeOSOnly": false,
+  "shortcuts": [
+    {
+      "name": "Snap Meal",
+      "short_name": "Camera",
+      "url": "/dashboard/camera",
+      "icons": [{ "src": "/icons/icon-96x96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "AI Chat",
+      "short_name": "Chat",
+      "url": "/dashboard/chat",
+      "icons": [{ "src": "/icons/icon-96x96.png", "sizes": "96x96" }]
+    }
+  ],
+  "generatorApp": "bubblewrap-cli",
+  "webManifestUrl": "https://nutrilens.vercel.app/manifest.json",
+  "fallbackType": "customtabs",
+  "features": {
+    "locationDelegation": {
+      "enabled": false
+    },
+    "playBilling": {
+      "enabled": false
+    }
+  },
+  "signingKey": {
+    "path": "./keystore.jks",
+    "alias": "nutrilens"
+  },
+  "appVersionName": "1.0.0",
+  "appVersion": 1
+}

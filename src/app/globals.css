@@ -1,0 +1,569 @@
+@import "tailwindcss";
+
+/* ──────────────────────────────────────────────
+   Tailwind v4 Theme Customization
+   ────────────────────────────────────────────── */
+
+@theme {
+  --font-sans: var(--font-nunito), "Nunito", system-ui, -apple-system, sans-serif;
+  
+  /* Map MD3 colors to Tailwind */
+  --color-primary: var(--md-sys-color-primary);
+  --color-on-primary: var(--md-sys-color-on-primary);
+  --color-primary-container: var(--md-sys-color-primary-container);
+  --color-on-primary-container: var(--md-sys-color-on-primary-container);
+  --color-secondary: var(--md-sys-color-secondary);
+  --color-on-secondary: var(--md-sys-color-on-secondary);
+  --color-secondary-container: var(--md-sys-color-secondary-container);
+  --color-on-secondary-container: var(--md-sys-color-on-secondary-container);
+  --color-tertiary: var(--md-sys-color-tertiary);
+  --color-on-tertiary: var(--md-sys-color-on-tertiary);
+  --color-tertiary-container: var(--md-sys-color-tertiary-container);
+  --color-on-tertiary-container: var(--md-sys-color-on-tertiary-container);
+  --color-error: var(--md-sys-color-error);
+  --color-on-error: var(--md-sys-color-on-error);
+  --color-error-container: var(--md-sys-color-error-container);
+  --color-on-error-container: var(--md-sys-color-on-error-container);
+  --color-surface: var(--md-sys-color-surface);
+  --color-on-surface: var(--md-sys-color-on-surface);
+  --color-on-surface-variant: var(--md-sys-color-on-surface-variant);
+  --color-outline: var(--md-sys-color-outline);
+  --color-outline-variant: var(--md-sys-color-outline-variant);
+  --color-surface-container: var(--md-sys-color-surface-container);
+  --color-surface-container-low: var(--md-sys-color-surface-container-low);
+  --color-surface-container-high: var(--md-sys-color-surface-container-high);
+  --color-surface-container-highest: var(--md-sys-color-surface-container-highest);
+  --color-surface-container-lowest: var(--md-sys-color-surface-container-lowest);
+  --color-surface-dim: var(--md-sys-color-surface-dim);
+  --color-surface-bright: var(--md-sys-color-surface-bright);
+  --color-inverse-surface: var(--md-sys-color-inverse-surface);
+  --color-inverse-on-surface: var(--md-sys-color-inverse-on-surface);
+  --color-inverse-primary: var(--md-sys-color-inverse-primary);
+}
+
+/* ──────────────────────────────────────────────
+   MD3 Shape Tokens
+   ────────────────────────────────────────────── */
+
+:root {
+  --md-sys-shape-corner-small: 8px;
+  --md-sys-shape-corner-medium: 16px;
+  --md-sys-shape-corner-large: 28px;
+  --md-sys-shape-corner-full: 9999px;
+}
+
+/* ──────────────────────────────────────────────
+   MD3 Default Colors (Light Mode — Fresh Teal seed #4CAF88)
+   Applied before JS hydration to prevent flash
+   ────────────────────────────────────────────── */
+
+:root {
+  /* Primary */
+  --md-sys-color-primary: #3a8c6a;
+  --md-sys-color-on-primary: #ffffff;
+  --md-sys-color-primary-container: #a8f2cc;
+  --md-sys-color-on-primary-container: #002114;
+  
+  /* Secondary */
+  --md-sys-color-secondary: #4d6356;
+  --md-sys-color-on-secondary: #ffffff;
+  --md-sys-color-secondary-container: #d0e8d8;
+  --md-sys-color-on-secondary-container: #0b1f15;
+  
+  /* Tertiary */
+  --md-sys-color-tertiary: #3d6373;
+  --md-sys-color-on-tertiary: #ffffff;
+  --md-sys-color-tertiary-container: #c1e8fb;
+  --md-sys-color-on-tertiary-container: #001f29;
+  
+  /* Error */
+  --md-sys-color-error: #ba1a1a;
+  --md-sys-color-on-error: #ffffff;
+  --md-sys-color-error-container: #ffdad6;
+  --md-sys-color-on-error-container: #410002;
+  
+  /* Surface */
+  --md-sys-color-surface: #f6fbf4;
+  --md-sys-color-on-surface: #181d19;
+  --md-sys-color-on-surface-variant: #414942;
+  --md-sys-color-surface-dim: #d6dbd5;
+  --md-sys-color-surface-bright: #f6fbf4;
+  
+  /* Surface Containers */
+  --md-sys-color-surface-container-lowest: #ffffff;
+  --md-sys-color-surface-container-low: #f0f5ee;
+  --md-sys-color-surface-container: #eaefe8;
+  --md-sys-color-surface-container-high: #e5eae3;
+  --md-sys-color-surface-container-highest: #dfe4dd;
+  
+  /* Outline */
+  --md-sys-color-outline: #717972;
+  --md-sys-color-outline-variant: #c1c9c0;
+  
+  /* Inverse */
+  --md-sys-color-inverse-surface: #2c322d;
+  --md-sys-color-inverse-on-surface: #edf2eb;
+  --md-sys-color-inverse-primary: #8cd6b2;
+  
+  /* Shadow & Scrim */
+  --md-sys-color-shadow: #000000;
+  --md-sys-color-scrim: #000000;
+  --md-sys-color-background: #f6fbf4;
+  --md-sys-color-on-background: #181d19;
+}
+
+/* ──────────────────────────────────────────────
+   Dark Mode Default Colors
+   ────────────────────────────────────────────── */
+
+[data-theme="dark"] {
+  /* Primary */
+  --md-sys-color-primary: #8cd6b2;
+  --md-sys-color-on-primary: #003823;
+  --md-sys-color-primary-container: #1b6b4e;
+  --md-sys-color-on-primary-container: #a8f2cc;
+  
+  /* Secondary */
+  --md-sys-color-secondary: #b4ccbc;
+  --md-sys-color-on-secondary: #203529;
+  --md-sys-color-secondary-container: #374b3f;
+  --md-sys-color-on-secondary-container: #d0e8d8;
+  
+  /* Tertiary */
+  --md-sys-color-tertiary: #a5ccdf;
+  --md-sys-color-on-tertiary: #083543;
+  --md-sys-color-tertiary-container: #244c5b;
+  --md-sys-color-on-tertiary-container: #c1e8fb;
+  
+  /* Error */
+  --md-sys-color-error: #ffb4ab;
+  --md-sys-color-on-error: #690005;
+  --md-sys-color-error-container: #93000a;
+  --md-sys-color-on-error-container: #ffdad6;
+  
+  /* Surface */
+  --md-sys-color-surface: #101510;
+  --md-sys-color-on-surface: #dfe4dd;
+  --md-sys-color-on-surface-variant: #c1c9c0;
+  --md-sys-color-surface-dim: #101510;
+  --md-sys-color-surface-bright: #363b36;
+  
+  /* Surface Containers */
+  --md-sys-color-surface-container-lowest: #0b0f0b;
+  --md-sys-color-surface-container-low: #181d19;
+  --md-sys-color-surface-container: #1c211c;
+  --md-sys-color-surface-container-high: #262b26;
+  --md-sys-color-surface-container-highest: #313631;
+  
+  /* Outline */
+  --md-sys-color-outline: #8b938b;
+  --md-sys-color-outline-variant: #414942;
+  
+  /* Inverse */
+  --md-sys-color-inverse-surface: #dfe4dd;
+  --md-sys-color-inverse-on-surface: #2c322d;
+  --md-sys-color-inverse-primary: #3a8c6a;
+  
+  /* Shadow & Scrim */
+  --md-sys-color-shadow: #000000;
+  --md-sys-color-scrim: #000000;
+  --md-sys-color-background: #101510;
+  --md-sys-color-on-background: #dfe4dd;
+}
+
+/* ──────────────────────────────────────────────
+   MD3 Typography Scale
+   ────────────────────────────────────────────── */
+
+.display-large {
+  font-size: 57px;
+  font-weight: 400;
+  line-height: 64px;
+  letter-spacing: -0.25px;
+}
+
+.display-medium {
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 52px;
+}
+
+.display-small {
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 44px;
+}
+
+.headline-large {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 40px;
+}
+
+.headline-medium {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 36px;
+}
+
+.headline-small {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+}
+
+.title-large {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+.title-medium {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+}
+
+.title-small {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+}
+
+.body-large {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+}
+
+.body-medium {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+}
+
+.body-small {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0.4px;
+}
+
+.label-large {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+}
+
+.label-medium {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+}
+
+.label-small {
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+}
+
+/* ──────────────────────────────────────────────
+   Base Reset & Global Styles
+   ────────────────────────────────────────────── */
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  font-family: var(--font-nunito), "Nunito", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--md-sys-color-outline-variant);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--md-sys-color-outline);
+}
+
+/* Focus visible */
+*:focus-visible {
+  outline: 2px solid var(--md-sys-color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ──────────────────────────────────────────────
+   Animation Keyframes
+   ────────────────────────────────────────────── */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideInFromBottom {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes dotWave {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-8px); }
+}
+
+@keyframes scalePulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes checkmarkDraw {
+  0% { stroke-dashoffset: 24; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blinkCursor {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* ──────────────────────────────────────────────
+   Utility Classes
+   ────────────────────────────────────────────── */
+
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .glass {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--md-sys-color-surface-container) 25%,
+    var(--md-sys-color-surface-container-high) 50%,
+    var(--md-sys-color-surface-container) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Ripple effect base */
+.ripple-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle,
+    var(--md-sys-color-on-surface) 10%,
+    transparent 10%
+  );
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.ripple-container:active::after {
+  opacity: 0.08;
+  transform: scale(4);
+  transition: 0s;
+}
+
+/* Floating animation for empty states */
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Dot wave for typing indicator */
+.animate-dot-wave {
+  animation: dotWave 1.4s ease-in-out infinite;
+}
+
+/* Safe area for mobile PWA */
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.safe-area-top {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+/* PWA standalone mode detection */
+@media (display-mode: standalone) {
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top, 20px);
+  }
+}
+
+/* ──────────────────────────────────────────────
+   MD3 Elevation (tonal overlay system)
+   ────────────────────────────────────────────── */
+
+.elevation-0 {
+  background-color: var(--md-sys-color-surface);
+}
+
+.elevation-1 {
+  background-color: var(--md-sys-color-surface-container-low);
+}
+
+.elevation-2 {
+  background-color: var(--md-sys-color-surface-container);
+}
+
+.elevation-3 {
+  background-color: var(--md-sys-color-surface-container-high);
+}
+
+.elevation-4,
+.elevation-5 {
+  background-color: var(--md-sys-color-surface-container-highest);
+}
+
+/* ──────────────────────────────────────────────
+   Range Input Styling (for PortionSlider)
+   ────────────────────────────────────────────── */
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 9999px;
+  background: var(--md-sys-color-outline-variant);
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--md-sys-color-primary);
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: transform 0.15s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+input[type="range"]::-webkit-slider-thumb:active {
+  transform: scale(1.05);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--md-sys-color-primary);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
