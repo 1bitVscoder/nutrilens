@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Nunito } from 'next/font/google';
 import './globals.css';
 import ThemeProvider from '@/components/ThemeProvider';
+import ServiceWorkerRegister from '@/components/ServiceWorkerRegister';
 
 const nunito = Nunito({
   subsets: ['latin'],
@@ -48,6 +49,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
       </head>
       <body>
+        <ServiceWorkerRegister />
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
